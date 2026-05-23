@@ -1,9 +1,10 @@
-import { env } from '../config/env.js';
-import { logger } from '../utils/logger.js';
-import WebSocket from 'ws';
+import WebSocket from "ws";
 
-export type PowerSignal = 'start' | 'stop' | 'restart' | 'kill';
-export type ServerState = 'running' | 'starting' | 'stopping' | 'offline';
+import { env } from "@/config/Env";
+import { logger } from "@/utils/Logger";
+
+export type PowerSignal = "start" | "stop" | "restart" | "kill";
+export type ServerState = "running" | "starting" | "stopping" | "offline";
 
 export interface ServerResources {
     current_state: ServerState;
@@ -51,7 +52,7 @@ export class PterodactylService {
     private readonly serverId: string;
 
     public constructor() {
-        this.baseUrl = env.PTERODACTYL_URL.replace(/\/$/, '');
+        this.baseUrl = env.PTERODACTYL_URL.replace(/\/$/, "");
         this.token = env.PTERODACTYL_TOKEN;
         this.serverId = env.PTERODACTYL_SERVER_ID;
     }
@@ -71,33 +72,34 @@ export class PterodactylService {
     }
 
     public async start(): Promise<void> {
-        await this.power('start');
+        await this.power("start");
     }
 
     public async stop(): Promise<void> {
-        await this.power('stop');
+        await this.power("stop");
     }
 
     public async restart(): Promise<void> {
-        await this.power('restart');
+        await this.power("restart");
     }
 
     public async kill(): Promise<void> {
-        await this.power('kill');
+        await this.power("kill");
     }
 
     public async sendCommand(command: string): Promise<void> {
         await this.post(`/servers/${this.serverId}/command`, { command });
     }
 
-    /**
-     * Connects to the Pterodactyl WebSocket console in listen-only mode (no command sent)
-     * and resolves with `true` as soon as a console line matches `pattern`, or `false` on timeout.
-     */
-    public async waitForConsolePattern(pattern: RegExp, timeoutMs = 2 * 60_000): Promise<boolean> {
-        const details = await this.get<WebsocketDetails>(`/servers/${this.serverId}/websocket`);
+    public async waitForConsolePattern(
+        pattern: RegExp,
+        timeoutMs = 2 * 60_000,
+    ): Promise<boolean> {
+        const details = await this.get<WebsocketDetails>(
+            `/servers/${this.serverId}/websocket`,
+        );
 
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             let settled = false;
 
             const settle = (value: boolean) => {
@@ -107,7 +109,7 @@ export class PterodactylService {
             };
 
             const ws = new WebSocket(details.data.socket, {
-                origin: this.baseUrl.replace('/api/client', ''),
+                origin: this.baseUrl.replace("/api/client", ""),
             });
 
             const timeout = setTimeout(() => {
@@ -115,15 +117,20 @@ export class PterodactylService {
                 settle(false);
             }, timeoutMs);
 
-            ws.on('open', () => {
-                ws.send(JSON.stringify({ event: 'auth', args: [details.data.token] }));
+            ws.on("open", () => {
+                ws.send(
+                    JSON.stringify({
+                        event: "auth",
+                        args: [details.data.token],
+                    }),
+                );
             });
 
-            ws.on('message', raw => {
+            ws.on("message", (raw) => {
                 const payload = this.parseSocketPayload(raw.toString());
                 if (!payload?.event) return;
 
-                if (payload.event === 'console output' && payload.args?.[0]) {
+                if (payload.event === "console output" && payload.args?.[0]) {
                     const line = this.cleanConsoleLine(payload.args[0]);
                     if (pattern.test(line)) {
                         clearTimeout(timeout);
@@ -133,27 +140,32 @@ export class PterodactylService {
                 }
             });
 
-            ws.on('error', () => {
+            ws.on("error", () => {
                 clearTimeout(timeout);
                 settle(false);
             });
 
-            ws.on('close', () => {
+            ws.on("close", () => {
                 clearTimeout(timeout);
                 settle(false);
             });
         });
     }
 
-    public async sendConsoleCommand(command: string, timeoutMs = 6_000): Promise<string[]> {
-        const details = await this.get<WebsocketDetails>(`/servers/${this.serverId}/websocket`);
+    public async sendConsoleCommand(
+        command: string,
+        timeoutMs = 6_000,
+    ): Promise<string[]> {
+        const details = await this.get<WebsocketDetails>(
+            `/servers/${this.serverId}/websocket`,
+        );
 
         return new Promise((resolve, reject) => {
             const output: string[] = [];
             let authenticated = false;
 
             const ws = new WebSocket(details.data.socket, {
-                origin: this.baseUrl.replace('/api/client', ''),
+                origin: this.baseUrl.replace("/api/client", ""),
             });
 
             const timeout = setTimeout(() => {
@@ -161,34 +173,48 @@ export class PterodactylService {
                 resolve(output);
             }, timeoutMs);
 
-            ws.on('open', () => {
-                ws.send(JSON.stringify({ event: 'auth', args: [details.data.token] }));
+            ws.on("open", () => {
+                ws.send(
+                    JSON.stringify({
+                        event: "auth",
+                        args: [details.data.token],
+                    }),
+                );
             });
 
-            ws.on('message', raw => {
+            ws.on("message", (raw) => {
                 const payload = this.parseSocketPayload(raw.toString());
                 if (!payload?.event) return;
 
-                if (payload.event === 'auth success') {
+                if (payload.event === "auth success") {
                     authenticated = true;
-                    ws.send(JSON.stringify({ event: 'send command', args: [command] }));
+                    ws.send(
+                        JSON.stringify({
+                            event: "send command",
+                            args: [command],
+                        }),
+                    );
                     return;
                 }
 
-                if (payload.event === 'console output' && payload.args?.[0]) {
+                if (payload.event === "console output" && payload.args?.[0]) {
                     output.push(this.cleanConsoleLine(payload.args[0]));
                 }
             });
 
-            ws.on('error', error => {
+            ws.on("error", (error) => {
                 clearTimeout(timeout);
                 reject(error);
             });
 
-            ws.on('close', () => {
+            ws.on("close", () => {
                 clearTimeout(timeout);
                 if (!authenticated) {
-                    reject(new Error('Could not authenticate with the Pterodactyl console.'));
+                    reject(
+                        new Error(
+                            "Could not authenticate with the Pterodactyl console.",
+                        ),
+                    );
                     return;
                 }
                 resolve(output);
@@ -201,15 +227,19 @@ export class PterodactylService {
     }
 
     private async get<T>(path: string): Promise<T> {
-        const response = await this.makeRequest('GET', path);
+        const response = await this.makeRequest("GET", path);
         return response.json() as Promise<T>;
     }
 
     private async post(path: string, body: unknown): Promise<void> {
-        await this.makeRequest('POST', path, body);
+        await this.makeRequest("POST", path, body);
     }
 
-    private async makeRequest(method: string, path: string, body?: unknown): Promise<Response> {
+    private async makeRequest(
+        method: string,
+        path: string,
+        body?: unknown,
+    ): Promise<Response> {
         const url = `${this.baseUrl}${path}`;
 
         logger.info(`[Pterodactyl] ${method} ${path}`);
@@ -218,17 +248,18 @@ export class PterodactylService {
             method,
             headers: {
                 Authorization: `Bearer ${this.token}`,
-                Accept: 'application/vnd.pterodactyl.v1+json',
-                'Content-Type': 'application/json',
+                Accept: "application/vnd.pterodactyl.v1+json",
+                "Content-Type": "application/json",
             },
             body: body !== undefined ? JSON.stringify(body) : undefined,
         });
 
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({})) as {
+            const errorData = (await response.json().catch(() => ({}))) as {
                 errors?: Array<{ detail: string }>;
             };
-            const detail = errorData.errors?.[0]?.detail ?? `HTTP ${response.status}`;
+            const detail =
+                errorData.errors?.[0]?.detail ?? `HTTP ${response.status}`;
             logger.error(`[Pterodactyl] Error: ${detail}`);
             throw new Error(detail);
         }
@@ -245,9 +276,11 @@ export class PterodactylService {
     }
 
     private cleanConsoleLine(line: string): string {
+        const esc = String.fromCharCode(27);
+        const ansiPattern = new RegExp(`${esc}\\[[0-?]*[ -/]*[@-~]`, "g");
         return line
-            .replace(/\u001B\[[0-?]*[ -/]*[@-~]/g, '')
-            .replace(/\[[0-9;:]+m/g, '')
+            .replace(ansiPattern, "")
+            .replace(/\[[0-9;:]+m/g, "")
             .trim();
     }
 }

@@ -1,59 +1,46 @@
-import { Collection } from 'discord.js';
-import type { ChatInputCommandInteraction } from 'discord.js';
-import { readdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import type { ChatInputCommandInteraction } from "discord.js";
+import { Collection } from "discord.js";
 
-import { logger } from '../utils/logger.js';
-import type { Command } from './commands/Command.js';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import type { CommandDefinition } from "@/bot/commands/BaseCommand";
+import { logger } from "@/utils/Logger";
 
 export class CommandHandler {
-    private readonly commands: Collection<string, Command>;
+    private readonly commands: Collection<string, CommandDefinition>;
 
-    public constructor() {
-        this.commands = new Collection();
-    }
-
-    public async loadCommands(): Promise<void> {
-        const commandsDir = join(__dirname, 'commands');
-        const files = readdirSync(commandsDir).filter(
-            f =>
-                (f.endsWith('.ts') || f.endsWith('.js'))
-                && !f.endsWith('.d.ts')
-                && !f.startsWith('Command'),
+    public constructor(definitions: CommandDefinition[]) {
+        this.commands = new Collection(
+            definitions.map((d) => [d.data.name, d]),
         );
 
-        for (const file of files) {
-            const filePath = join(commandsDir, file);
-            const module = await import(pathToFileURL(filePath).href) as { default?: Command };
-
-            if (module.default?.data) {
-                const command = module.default;
-                this.commands.set(command.data.name, command);
-                logger.info(`[CommandHandler] /${command.data.name} loaded`);
-            }
-        }
+        const names = [...this.commands.keys()].map((n) => `/${n}`).join(", ");
+        logger.info(
+            `[CommandHandler] ${this.commands.size} comandos registrados: ${names}`,
+        );
     }
 
-    public async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+    public async execute(
+        interaction: ChatInputCommandInteraction,
+    ): Promise<void> {
         const command = this.commands.get(interaction.commandName);
 
         if (!command) {
-            logger.warn(`[CommandHandler] Unknown command: ${interaction.commandName}`);
+            logger.warn(
+                `[CommandHandler] Comando desconhecido: /${interaction.commandName}`,
+            );
             return;
         }
 
         try {
             await command.execute(interaction);
         } catch (error) {
-            logger.error(`[CommandHandler] Error in /${interaction.commandName}:`, error);
+            logger.error(
+                `[CommandHandler] Erro em /${interaction.commandName}:`,
+                error,
+            );
 
-            const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-            const msg = {
-                content: `Command failed: \`${errorMessage}\``,
-            };
+            const errorMessage =
+                error instanceof Error ? error.message : "Erro desconhecido";
+            const msg = { content: `Comando falhou: \`${errorMessage}\`` };
 
             if (interaction.replied || interaction.deferred) {
                 await interaction.followUp(msg).catch(() => undefined);
@@ -63,7 +50,7 @@ export class CommandHandler {
         }
     }
 
-    public getAll(): Collection<string, Command> {
+    public getAll(): Collection<string, CommandDefinition> {
         return this.commands;
     }
 }

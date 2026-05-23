@@ -1,7 +1,7 @@
-import type { ChatInputCommandInteraction } from 'discord.js';
-import { EmbedBuilder } from 'discord.js';
+import type { ChatInputCommandInteraction } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
-import { PterodactylService } from './PterodactylService.js';
+import { PterodactylService } from "@/services/PterodactylService";
 
 interface CleanupResult {
     discordMessage: string;
@@ -16,14 +16,19 @@ class GroundCleanupScheduler {
         return this.activeJob !== null;
     }
 
-    public async schedule(interaction: ChatInputCommandInteraction, delaySeconds: number): Promise<void> {
+    public async schedule(
+        interaction: ChatInputCommandInteraction,
+        delaySeconds: number,
+    ): Promise<void> {
         if (this.activeJob) {
             await interaction.editReply({
                 embeds: [
                     new EmbedBuilder()
                         .setColor(0xef4444)
-                        .setTitle('Limpeza já Agendada')
-                        .setDescription('Use `/cancelar-limpeza` antes de agendar outra limpeza.')
+                        .setTitle("Limpeza já Agendada")
+                        .setDescription(
+                            "Use `/cancelar-limpeza` antes de agendar outra limpeza.",
+                        )
                         .setTimestamp(),
                 ],
             });
@@ -33,13 +38,15 @@ class GroundCleanupScheduler {
         const service = new PterodactylService();
         const resources = await service.getResources();
 
-        if (resources.current_state !== 'running') {
+        if (resources.current_state !== "running") {
             await interaction.editReply({
                 embeds: [
                     new EmbedBuilder()
                         .setColor(0xef4444)
-                        .setTitle('Servidor Offline')
-                        .setDescription('O servidor precisa estar online para limpar itens do chão.')
+                        .setTitle("Servidor Offline")
+                        .setDescription(
+                            "O servidor precisa estar online para limpar itens do chão.",
+                        )
                         .setTimestamp(),
                 ],
             });
@@ -52,14 +59,16 @@ class GroundCleanupScheduler {
             embeds: [
                 new EmbedBuilder()
                     .setColor(0xeab308)
-                    .setTitle('🧹 Limpeza do Chão Agendada')
-                    .setDescription(`Os itens do chão serão limpos em **${delaySeconds} segundos**.`)
+                    .setTitle("🧹 Limpeza do Chão Agendada")
+                    .setDescription(
+                        `Os itens do chão serão limpos em **${delaySeconds} segundos**.`,
+                    )
                     .setTimestamp(),
             ],
         });
 
         this.activeJob = setTimeout(() => {
-            this.run(service, interaction).catch(async error => {
+            this.run(service, interaction).catch(async (error) => {
                 await this.fail(interaction, error);
             });
         }, delaySeconds * 1_000);
@@ -83,29 +92,41 @@ class GroundCleanupScheduler {
         const interaction = this.activeInteraction;
         this.reset();
 
-        await this.sendSay(new PterodactylService(), 'Limpeza do chao cancelada.');
+        await this.sendSay(
+            new PterodactylService(),
+            "Limpeza do chao cancelada.",
+        );
 
         if (interaction) {
-            await interaction.editReply({
-                embeds: [
-                    new EmbedBuilder()
-                        .setColor(0x64748b)
-                        .setTitle('Limpeza Cancelada')
-                        .setDescription('A limpeza agendada foi cancelada antes de executar.')
-                        .setTimestamp(),
-                ],
-            }).catch(() => undefined);
+            await interaction
+                .editReply({
+                    embeds: [
+                        new EmbedBuilder()
+                            .setColor(0x64748b)
+                            .setTitle("Limpeza Cancelada")
+                            .setDescription(
+                                "A limpeza agendada foi cancelada antes de executar.",
+                            )
+                            .setTimestamp(),
+                    ],
+                })
+                .catch(() => undefined);
         }
 
         return true;
     }
 
-    private async run(service: PterodactylService, interaction: ChatInputCommandInteraction): Promise<void> {
+    private async run(
+        service: PterodactylService,
+        interaction: ChatInputCommandInteraction,
+    ): Promise<void> {
         try {
-            const output = await service.sendConsoleCommand('kill @e[type=item]', 8_000);
+            const output = await service.sendConsoleCommand(
+                "kill @e[type=item]",
+                8_000,
+            );
             const result = this.findCleanupResult(output);
 
-            // aguarda 500ms para o servidor processar o kill antes de enviar o say
             await this.sleep(500);
             await this.sendSay(service, result.sayMessage);
 
@@ -113,7 +134,7 @@ class GroundCleanupScheduler {
                 embeds: [
                     new EmbedBuilder()
                         .setColor(0x22c55e)
-                        .setTitle('🧹 Limpeza Concluída')
+                        .setTitle("🧹 Limpeza Concluída")
                         .setDescription(result.discordMessage)
                         .setTimestamp(),
                 ],
@@ -123,14 +144,21 @@ class GroundCleanupScheduler {
         }
     }
 
-    private async runCountdown(service: PterodactylService, delaySeconds: number): Promise<void> {
-        await this.sendSay(service, `O chao sera limpo em ${this.formatDelay(delaySeconds)}.`);
+    private async runCountdown(
+        service: PterodactylService,
+        delaySeconds: number,
+    ): Promise<void> {
+        await this.sendSay(
+            service,
+            `O chao sera limpo em ${this.formatDelay(delaySeconds)}.`,
+        );
 
-        const checkpoints = [60, 30, 10, 5, 3, 2, 1].filter(s => s < delaySeconds);
+        const checkpoints = [60, 30, 10, 5, 3, 2, 1].filter(
+            (s) => s < delaySeconds,
+        );
         const startedAt = Date.now();
 
         for (const checkpoint of checkpoints) {
-            // calcula quanto tempo real falta para chegar neste checkpoint
             const targetMs = (delaySeconds - checkpoint) * 1_000;
             const waitMs = targetMs - (Date.now() - startedAt);
 
@@ -141,40 +169,51 @@ class GroundCleanupScheduler {
             if (!this.activeJob) return;
 
             if (checkpoint > 5) {
-                await this.sendSay(service, `O chao sera limpo em ${this.formatDelay(checkpoint)}.`);
+                await this.sendSay(
+                    service,
+                    `O chao sera limpo em ${this.formatDelay(checkpoint)}.`,
+                );
             } else if (checkpoint === 5) {
-                await this.sendSay(service, 'O chao sera limpo em 5 segundos.');
+                await this.sendSay(service, "O chao sera limpo em 5 segundos.");
             } else {
                 await this.sendSay(service, String(checkpoint));
             }
         }
     }
 
-    private async sendSay(service: PterodactylService, message: string): Promise<void> {
-        // sendCommand é REST (~100ms), não abre WebSocket — mantém o countdown preciso
+    private async sendSay(
+        service: PterodactylService,
+        message: string,
+    ): Promise<void> {
         await service.sendCommand(`say ${message}`);
     }
 
-    private async fail(interaction: ChatInputCommandInteraction, error: unknown): Promise<void> {
-        const message = error instanceof Error ? error.message : 'Unknown error';
+    private async fail(
+        interaction: ChatInputCommandInteraction,
+        error: unknown,
+    ): Promise<void> {
+        const message =
+            error instanceof Error ? error.message : "Unknown error";
         this.reset();
 
-        await interaction.editReply({
-            embeds: [
-                new EmbedBuilder()
-                    .setColor(0xef4444)
-                    .setTitle('Erro na Limpeza do Chão')
-                    .setDescription(`\`${message}\``)
-                    .setTimestamp(),
-            ],
-        }).catch(() => undefined);
+        await interaction
+            .editReply({
+                embeds: [
+                    new EmbedBuilder()
+                        .setColor(0xef4444)
+                        .setTitle("Erro na Limpeza do Chão")
+                        .setDescription(`\`${message}\``)
+                        .setTimestamp(),
+                ],
+            })
+            .catch(() => undefined);
     }
 
     private findCleanupResult(lines: string[]): CleanupResult {
         const resultLine = lines
             .slice()
             .reverse()
-            .find(line => line.toLowerCase().includes('killed'));
+            .find((line) => line.toLowerCase().includes("killed"));
 
         const amount = resultLine?.match(/killed\s+(\d+)/i)?.[1];
 
@@ -186,15 +225,15 @@ class GroundCleanupScheduler {
         }
 
         return {
-            discordMessage: 'Comando de limpeza enviado ao servidor.',
-            sayMessage: 'Chao limpo.',
+            discordMessage: "Comando de limpeza enviado ao servidor.",
+            sayMessage: "Chao limpo.",
         };
     }
 
     private formatDelay(seconds: number): string {
         if (seconds >= 60 && seconds % 60 === 0) {
             const minutes = seconds / 60;
-            return `${minutes} ${minutes === 1 ? 'minuto' : 'minutos'}`;
+            return `${minutes} ${minutes === 1 ? "minuto" : "minutos"}`;
         }
 
         return `${seconds} segundos`;
@@ -206,7 +245,7 @@ class GroundCleanupScheduler {
     }
 
     private sleep(ms: number): Promise<void> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             setTimeout(resolve, ms);
         });
     }

@@ -1,9 +1,0 @@
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /limpar-chao loaded
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /players loaded
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /restart loaded
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /start loaded
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /status loaded
-[2026-05-22 20:33:00] [32minfo[39m: [CommandHandler] /stop loaded
-[2026-05-22 20:33:01] [32minfo[39m: [DiscordBot] Online as: bot-wncs#9156
-[2026-05-22 20:33:01] [32minfo[39m: [DiscordBot] Guilds: 1
-[2026-05-22 20:33:01] [32minfo[39m: [DiscordBot] Commands: /limpar-chao, /players, /restart, /start, /status, /stop

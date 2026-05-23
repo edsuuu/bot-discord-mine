@@ -1,5 +1,5 @@
-import { env } from '../config/env.js';
-import { logger } from '../utils/logger.js';
+import { env } from "@/config/Env";
+import { logger } from "@/utils/Logger";
 
 interface WebhookPayload {
     content?: string;
@@ -13,20 +13,26 @@ interface WebhookPayload {
 }
 
 export class DiscordWebhookService {
-    private readonly url = env.DISCORD_WEBHOOK_URL || '';
+    private readonly url = env.DISCORD_WEBHOOK_URL || "";
 
     public get enabled(): boolean {
         return this.url.length > 0;
     }
 
-    public async sendAction(title: string, description: string, color: number): Promise<void> {
+    public async sendAction(
+        title: string,
+        description: string,
+        color: number,
+    ): Promise<void> {
         await this.send({
-            embeds: [{
-                title,
-                description,
-                color,
-                timestamp: new Date().toISOString(),
-            }],
+            embeds: [
+                {
+                    title,
+                    description,
+                    color,
+                    timestamp: new Date().toISOString(),
+                },
+            ],
         });
     }
 
@@ -34,13 +40,15 @@ export class DiscordWebhookService {
         if (!this.enabled) return;
 
         const response = await fetch(this.url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
-            logger.warn(`[DiscordWebhook] Failed to send webhook: HTTP ${response.status}`);
+            logger.warn(
+                `[DiscordWebhook] Failed to send webhook: HTTP ${response.status}`,
+            );
         }
     }
 }

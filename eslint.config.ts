@@ -6,12 +6,15 @@ import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 
 export default [
+    {
+        ignores: ['dist/**', 'node_modules/**', 'eslint.config.ts'],
+    },
+
     js.configs.recommended,
 
     ...tseslint.configs.recommended,
 
     {
-        ignores: ['eslint.config.ts'],
         files: ['**/*.ts', '**/*.tsx'],
 
         languageOptions: {
@@ -22,7 +25,6 @@ export default [
             },
             globals: {
                 ...globals.node,
-                ...globals.browser,
                 Atomics: 'readonly',
                 SharedArrayBuffer: 'readonly',
             },
@@ -44,47 +46,30 @@ export default [
 
         rules: {
             indent: ['error', 4],
-
-            'no-multiple-empty-lines': [
-                'error',
-                { max: 1, maxEOF: 1, maxBOF: 0 },
-            ],
-
+            'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
             quotes: ['error', 'single'],
-
             'import/newline-after-import': 'error',
-
-            '@typescript-eslint/explicit-member-accessibility': [
-                'error',
-                { accessibility: 'explicit' },
-            ],
-
+            '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
             curly: ['error', 'all'],
-
             'import/order': [
                 'error',
                 {
-                    groups: [
-                        ['builtin', 'external'],
-                        'internal',
-                        'parent',
-                        'sibling',
-                        'index',
+                    groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
+                    pathGroups: [
+                        {
+                            pattern: '@/**',
+                            group: 'internal',
+                        },
                     ],
+                    pathGroupsExcludedImportTypes: ['builtin'],
                     'newlines-between': 'always',
-                    alphabetize: {
-                        order: 'asc',
-                        caseInsensitive: true,
-                    },
+                    alphabetize: { order: 'asc', caseInsensitive: true },
                 },
             ],
-
+            'no-empty': ['error', { allowEmptyCatch: true }],
             'prefer-const': 'error',
-
             eqeqeq: ['error', 'always'],
-
             '@typescript-eslint/no-explicit-any': 'error',
-
             'prettier/prettier': 'error',
         },
     },
