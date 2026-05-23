@@ -1,0 +1,285 @@
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:04:12"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:04:46"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:13:28"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:13:28"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:13:28"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:13:28"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:13:28"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:13:29"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:13:29"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:13:29"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:15:22"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:15:22"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:15:22"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:15:22"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:15:22"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:15:23"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:15:23"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:15:23"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:17:55"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:17:56"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/power","service":"discord-enxada","timestamp":"2026-05-22 20:18:04"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:14"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/power","service":"discord-enxada","timestamp":"2026-05-22 20:18:16"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:16"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:21"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:26"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:31"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:36"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:41"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:46"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:51"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:18:56"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:02"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:07"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:12"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:17"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:22"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:27"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:32"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:37"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:42"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:47"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:52"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:57"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/power","service":"discord-enxada","timestamp":"2026-05-22 20:19:58"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:19:58"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:03"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:08"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:14"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:19"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:24"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:29"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:34"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:39"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:44"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:49"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:54"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:20:59"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:21:04"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:21:09"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:21:15"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:21:20"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:21:29"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:22:14"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:22:14"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:22:14"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:22:14"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:22:14"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:22:15"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:22:15"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:22:15"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:23:21"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:23:21"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:23:21"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:23:21"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:23:21"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:23:22"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:23:22"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:23:22"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:23:29"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:25:26"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:25:26"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:25:26"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:25:26"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:25:26"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:25:27"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:25:27"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:25:27"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:26:26"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:26:26"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:26:26"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:26:26"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:26:26"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:26:28"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:26:28"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:26:28"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:27:01"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:27:01"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:27:01"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:27:01"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:27:01"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:27:02"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:27:02"}
+{"level":"info","message":"[DiscordBot] Commands: /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:27:02"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[DiscordBot] Commands: /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:32:47"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:33:00"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:33:01"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:33:01"}
+{"level":"info","message":"[DiscordBot] Commands: /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:33:01"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:34:23"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:34:24"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:34:24"}
+{"level":"info","message":"[DiscordBot] Commands: /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:34:24"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 20:36:11"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:36:12"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 20:36:12"}
+{"level":"error","message":"[Pterodactyl] Error: This action is unauthorized.","service":"discord-enxada","timestamp":"2026-05-22 20:36:13"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:40:22"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:40:23"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:40:23"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:40:23"}
+{"level":"info","message":"[DiscordBot] Slash command received: /players","service":"discord-enxada","timestamp":"2026-05-22 20:40:32"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:40:33"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:40:33"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 20:42:42"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:42:42"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:43"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:46"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:48"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:48"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:50"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:42:56"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:54:04"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:54:05"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:54:05"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:54:05"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 20:54:19"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:54:20"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:20"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:23"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:25"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:26"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:28"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:33"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 20:54:54"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:54:55"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:55"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:54:58"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:55:00"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:55:00"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:55:02"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:55:08"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 20:58:54"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 20:58:55"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:58:56"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:58:59"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:59:01"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:59:01"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:59:03"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 20:59:09"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 20:59:27"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 21:00:00"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:00:01"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:00:02"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:00:04"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:00:05"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:00:06"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 21:00:07"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:00:15"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:54"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 21:01:55"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 21:01:56"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 21:02:43"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:02:44"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:02:45"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:02:47"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:02:48"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:02:49"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 21:02:50"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:02:58"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:35"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:35"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:35"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:36"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:36"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:36"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 21:05:36"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 21:05:37"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 21:05:37"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 21:05:37"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 21:05:54"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:05:54"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:05:55"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:05:57"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:05:58"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:05:59"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 21:06:00"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:06:08"}
+{"level":"info","message":"[DiscordBot] Slash command received: /status","service":"discord-enxada","timestamp":"2026-05-22 21:06:29"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:06:30"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c","service":"discord-enxada","timestamp":"2026-05-22 21:06:30"}
+{"level":"info","message":"[DiscordBot] Slash command received: /players","service":"discord-enxada","timestamp":"2026-05-22 21:06:46"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:06:47"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 21:06:47"}
+{"level":"info","message":"[DiscordBot] Slash command received: /restart","service":"discord-enxada","timestamp":"2026-05-22 21:07:37"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:07:37"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/power","service":"discord-enxada","timestamp":"2026-05-22 21:07:38"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:47"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:47"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:47"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:48"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:48"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:48"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 21:19:48"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 21:19:49"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 21:19:49"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 21:19:49"}
+{"level":"info","message":"[DiscordBot] Slash command received: /restart","service":"discord-enxada","timestamp":"2026-05-22 21:20:23"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:20:23"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/power","service":"discord-enxada","timestamp":"2026-05-22 21:20:23"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:20:29"}
+{"level":"info","message":"[CommandHandler] /cancelar-limpeza loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /limpar-chao loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /players loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /restart loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /start loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /status loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[CommandHandler] /stop loaded","service":"discord-enxada","timestamp":"2026-05-22 21:25:11"}
+{"level":"info","message":"[DiscordBot] Online as: bot-wncs#9156","service":"discord-enxada","timestamp":"2026-05-22 21:25:12"}
+{"level":"info","message":"[DiscordBot] Guilds: 1","service":"discord-enxada","timestamp":"2026-05-22 21:25:12"}
+{"level":"info","message":"[DiscordBot] Commands: /cancelar-limpeza, /limpar-chao, /players, /restart, /start, /status, /stop","service":"discord-enxada","timestamp":"2026-05-22 21:25:12"}
+{"level":"info","message":"[DiscordBot] Slash command received: /limpar-chao","service":"discord-enxada","timestamp":"2026-05-22 21:25:18"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/resources","service":"discord-enxada","timestamp":"2026-05-22 21:25:19"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:25:19"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:25:21"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:25:22"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:25:23"}
+{"level":"info","message":"[Pterodactyl] GET /servers/0c69180c/websocket","service":"discord-enxada","timestamp":"2026-05-22 21:25:24"}
+{"level":"info","message":"[Pterodactyl] POST /servers/0c69180c/command","service":"discord-enxada","timestamp":"2026-05-22 21:25:33"}

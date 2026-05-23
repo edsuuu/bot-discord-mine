@@ -1,0 +1,30 @@
+{
+    // Visit https://aka.ms/tsconfig to read more about this file
+    "include": ["src/**/*"],
+    "exclude": ["dist", "node_modules"],
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "module": "NodeNext",
+        "target": "ESNext",
+        "lib": ["ESNext"],
+        "types": ["node"],
+        "sourceMap": true,
+        "declaration": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noFallthroughCasesInSwitch": true,
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "skipLibCheck": true
+    }
+}
