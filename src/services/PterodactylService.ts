@@ -130,6 +130,13 @@ export class PterodactylService {
                 const payload = this.parseSocketPayload(raw.toString());
                 if (!payload?.event) return;
 
+                if (payload.event === "auth success") {
+                    ws.send(
+                        JSON.stringify({ event: "send logs", args: [null] }),
+                    );
+                    return;
+                }
+
                 if (payload.event === "console output" && payload.args?.[0]) {
                     const line = this.cleanConsoleLine(payload.args[0]);
                     if (pattern.test(line)) {

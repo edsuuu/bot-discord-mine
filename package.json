@@ -6,11 +6,14 @@
     "license": "ISC",
     "type": "module",
     "scripts": {
+        "dev": "nodemon --watch src --ext ts --exec \"tsx --env-file=.env src/Main.ts\"",
         "build": "tsup",
-        "typecheck": "tsc --noEmit",
-        "dev": "node --env-file=.env --watch --import jiti/register src/Main.ts",
         "start": "node --env-file=.env dist/Main.js",
-        "deploy": "node --env-file=.env --import jiti/register src/bot/DeployCommands.ts",
+        "pm2:start": "pm2 start ecosystem.config.cjs",
+        "pm2:stop": "pm2 stop discord-enxada",
+        "pm2:restart": "pm2 restart discord-enxada",
+        "pm2:logs": "pm2 logs discord-enxada",
+        "pm2:status": "pm2 status",
         "lint": "eslint ."
     },
     "dependencies": {
@@ -28,8 +31,10 @@
         "eslint-plugin-prettier": "^5.5.5",
         "globals": "^17.4.0",
         "jiti": "^2.6.1",
+        "nodemon": "^3.1.14",
         "prettier": "^3.0.0",
         "tsup": "^8.5.1",
+        "tsx": "^4.22.3",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.57.2"
     }

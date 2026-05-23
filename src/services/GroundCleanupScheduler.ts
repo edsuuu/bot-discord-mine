@@ -10,11 +10,6 @@ interface CleanupResult {
 
 class GroundCleanupScheduler {
     private activeJob: NodeJS.Timeout | null = null;
-    private activeInteraction: ChatInputCommandInteraction | null = null;
-
-    public get isRunning(): boolean {
-        return this.activeJob !== null;
-    }
 
     public async schedule(
         interaction: ChatInputCommandInteraction,
@@ -27,7 +22,7 @@ class GroundCleanupScheduler {
                         .setColor(0xef4444)
                         .setTitle("Limpeza já Agendada")
                         .setDescription(
-                            "Use `/cancelar-limpeza` antes de agendar outra limpeza.",
+                            "Aguarde a limpeza atual terminar antes de agendar outra.",
                         )
                         .setTimestamp(),
                 ],
@@ -52,8 +47,6 @@ class GroundCleanupScheduler {
             });
             return;
         }
-
-        this.activeInteraction = interaction;
 
         await interaction.editReply({
             embeds: [
@@ -83,37 +76,6 @@ class GroundCleanupScheduler {
             this.reset();
             throw error;
         }
-    }
-
-    public async cancel(): Promise<boolean> {
-        if (!this.activeJob) return false;
-
-        clearTimeout(this.activeJob);
-        const interaction = this.activeInteraction;
-        this.reset();
-
-        await this.sendSay(
-            new PterodactylService(),
-            "Limpeza do chao cancelada.",
-        );
-
-        if (interaction) {
-            await interaction
-                .editReply({
-                    embeds: [
-                        new EmbedBuilder()
-                            .setColor(0x64748b)
-                            .setTitle("Limpeza Cancelada")
-                            .setDescription(
-                                "A limpeza agendada foi cancelada antes de executar.",
-                            )
-                            .setTimestamp(),
-                    ],
-                })
-                .catch(() => undefined);
-        }
-
-        return true;
     }
 
     private async run(
@@ -241,7 +203,6 @@ class GroundCleanupScheduler {
 
     private reset(): void {
         this.activeJob = null;
-        this.activeInteraction = null;
     }
 
     private sleep(ms: number): Promise<void> {

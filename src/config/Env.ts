@@ -9,7 +9,6 @@ const schema = z.object({
     PTERODACTYL_SERVER_ID: z
         .string()
         .min(1, "PTERODACTYL_SERVER_ID is required"),
-    DISCORD_WEBHOOK_URL: z.string().url().optional().or(z.literal("")),
     LOG_WEBHOOK_URL: z.string().url().optional().or(z.literal("")),
     NODE_ENV: z
         .enum(["development", "production", "test"])

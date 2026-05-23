@@ -13,7 +13,6 @@ import {
     type CommandDefinition,
 } from "@/bot/commands/BaseCommand";
 import { env } from "@/config/Env";
-import { DiscordWebhookService } from "@/services/DiscordWebhookService";
 import { groundCleanupScheduler } from "@/services/GroundCleanupScheduler";
 import { PterodactylService } from "@/services/PterodactylService";
 import {
@@ -30,9 +29,9 @@ const COLOR_MAP = {
     offline: 0xef4444,
 } as const;
 
-const MAX_WAIT_MS = 5 * 60 * 1_000;
+const PHASE1_MS = 5 * 60 * 1_000;
+const PHASE2_MS = 3 * 60 * 1_000;
 const POLL_INTERVAL = 5_000;
-const DONE_TIMEOUT = 2 * 60 * 1_000;
 
 export class Commands extends BaseCommand {
     public getDefinitions(): CommandDefinition[] {
@@ -100,14 +99,6 @@ export class Commands extends BaseCommand {
                     ),
                 execute: (i) => this.limparChao(i),
             },
-            {
-                data: new SlashCommandBuilder()
-                    .setName("cancelar-limpeza")
-                    .setDescription(
-                        "Cancela a limpeza do chão que está agendada",
-                    ),
-                execute: (i) => this.cancelarLimpeza(i),
-            },
         ];
     }
 
@@ -155,12 +146,6 @@ export class Commands extends BaseCommand {
             }
 
             await service.start();
-            await new DiscordWebhookService().sendAction(
-                "Servidor Ligando",
-                `Sinal de inicialização enviado por ${interaction.user.tag}.`,
-                0x22c55e,
-            );
-
             await interaction.editReply({
                 embeds: [
                     new EmbedBuilder()
@@ -214,7 +199,9 @@ export class Commands extends BaseCommand {
                 .setStyle(ButtonStyle.Secondary),
         );
 
-        const reply = await interaction.reply({
+        await interaction.deferReply();
+
+        await interaction.editReply({
             embeds: [
                 new EmbedBuilder()
                     .setColor(0xf97316)
@@ -231,18 +218,20 @@ export class Commands extends BaseCommand {
                     .setFooter({ text: "Responda em 30 segundos" }),
             ],
             components: [confirmRow],
-            fetchReply: true,
         });
 
         try {
+            const reply = await interaction.fetchReply();
             const confirmation = await reply.awaitMessageComponent({
                 filter: (i) => i.user.id === interaction.user.id,
                 componentType: ComponentType.Button,
                 time: 30_000,
             });
 
+            await confirmation.deferUpdate();
+
             if (confirmation.customId === "cancel_stop") {
-                await confirmation.update({
+                await interaction.editReply({
                     embeds: [
                         new EmbedBuilder()
                             .setColor(0x71717a)
@@ -254,7 +243,7 @@ export class Commands extends BaseCommand {
                 return;
             }
 
-            await confirmation.update({
+            await interaction.editReply({
                 embeds: [
                     new EmbedBuilder()
                         .setColor(0xf97316)
@@ -266,11 +255,6 @@ export class Commands extends BaseCommand {
 
             const service = new PterodactylService();
             await (force ? service.kill() : service.stop());
-            await new DiscordWebhookService().sendAction(
-                force ? "Servidor Finalizado (Kill)" : "Servidor Parando",
-                `${force ? "Kill" : "Parada"} solicitado por ${interaction.user.tag}.`,
-                force ? 0xef4444 : 0xf97316,
-            );
 
             await interaction.editReply({
                 embeds: [
@@ -340,12 +324,6 @@ export class Commands extends BaseCommand {
             }
 
             await service.restart();
-            await new DiscordWebhookService().sendAction(
-                "Servidor Reiniciando",
-                `Sinal de reinicialização enviado por ${interaction.user.tag}.`,
-                0xeab308,
-            );
-
             await interaction.editReply({
                 embeds: [
                     new EmbedBuilder()
@@ -564,54 +542,27 @@ export class Commands extends BaseCommand {
         }
     }
 
-    private async cancelarLimpeza(
-        interaction: ChatInputCommandInteraction,
-    ): Promise<void> {
-        await interaction.deferReply({ ephemeral: true });
-
-        const cancelled = await groundCleanupScheduler.cancel();
-
-        if (cancelled) {
-            await interaction.editReply({
-                embeds: [
-                    new EmbedBuilder()
-                        .setColor(0x22c55e)
-                        .setTitle("Limpeza Cancelada")
-                        .setDescription(
-                            "A limpeza agendada foi cancelada com sucesso.",
-                        )
-                        .setTimestamp(),
-                ],
-            });
-            return;
-        }
-
-        await interaction.editReply({
-            embeds: [
-                new EmbedBuilder()
-                    .setColor(0x64748b)
-                    .setTitle("Nenhuma Limpeza Agendada")
-                    .setDescription(
-                        "Não há nenhuma limpeza ativa para cancelar.",
-                    )
-                    .setTimestamp(),
-            ],
-        });
-    }
-
     private async waitForOnline(
         interaction: ChatInputCommandInteraction,
         service: PterodactylService,
     ): Promise<void> {
         const startedAt = Date.now();
 
-        while (Date.now() - startedAt < MAX_WAIT_MS) {
+        const donePromise = service.waitForConsolePattern(
+            /done \(\d+(?:\.\d+)?s\)!/i,
+            PHASE1_MS + PHASE2_MS,
+        );
+
+        let runningDetected = false;
+
+        while (Date.now() - startedAt < PHASE1_MS) {
             await this.sleep(POLL_INTERVAL);
 
             try {
                 const current = await service.getResources();
 
                 if (current.current_state === "running") {
+                    runningDetected = true;
                     const elapsedSec = Math.round(
                         (Date.now() - startedAt) / 1_000,
                     );
@@ -633,82 +584,71 @@ export class Commands extends BaseCommand {
                         ],
                     });
 
-                    const ready = await service.waitForConsolePattern(
-                        /done \(\d+(?:\.\d+)?s\)!/i,
-                        DONE_TIMEOUT,
-                    );
-
-                    const totalSec = Math.round(
-                        (Date.now() - startedAt) / 1_000,
-                    );
-
-                    let cpuStr = "—";
-                    try {
-                        const fresh = await service.getResources();
-                        cpuStr = `${fresh.resources.cpu_absolute.toFixed(1)}%`;
-                    } catch {}
-
-                    await new DiscordWebhookService().sendAction(
-                        ready ? "🟢 Servidor Pronto" : "🟢 Servidor Online",
-                        ready
-                            ? `Servidor pronto para entrar após ${totalSec}s.`
-                            : `Servidor online após ${totalSec}s (timeout aguardando "Done").`,
-                        0x22c55e,
-                    );
-
-                    await interaction.editReply({
-                        embeds: [
-                            new EmbedBuilder()
-                                .setColor(0x22c55e)
-                                .setTitle(
-                                    ready
-                                        ? "🟢 Servidor Pronto para Entrar!"
-                                        : "🟢 Servidor Online!",
-                                )
-                                .setDescription(
-                                    ready
-                                        ? `Mundo carregado! Você já pode entrar. Tempo total: **${totalSec}s**.`
-                                        : `O servidor está online após **${totalSec}s**. Tente entrar — o mundo pode já estar carregado.`,
-                                )
-                                .addFields(
-                                    {
-                                        name: "Tempo total",
-                                        value: `${totalSec}s`,
-                                        inline: true,
-                                    },
-                                    {
-                                        name: "CPU",
-                                        value: cpuStr,
-                                        inline: true,
-                                    },
-                                )
-                                .setFooter({ text: "EnxadaHost · Pterodactyl" })
-                                .setTimestamp(),
-                        ],
-                    });
-
-                    await interaction.followUp({
-                        content: ready
-                            ? `${interaction.user.toString()} ✅ Servidor pronto para entrar! (**${totalSec}s**)`
-                            : `${interaction.user.toString()} ✅ Servidor online! (**${totalSec}s**)`,
-                    });
-
-                    return;
+                    break;
                 }
             } catch {}
         }
 
+        if (!runningDetected) {
+            await interaction.editReply({
+                embeds: [
+                    new EmbedBuilder()
+                        .setColor(0xef4444)
+                        .setTitle("⏱️ Timeout — Servidor não ficou online")
+                        .setDescription(
+                            "O servidor não ficou online em **5 minutos**.\nVerifique o painel manualmente.",
+                        )
+                        .setFooter({ text: "EnxadaHost · Pterodactyl" })
+                        .setTimestamp(),
+                ],
+            });
+            return;
+        }
+
+        const ready = await donePromise;
+        const totalSec = Math.round((Date.now() - startedAt) / 1_000);
+
+        let cpuStr = "—";
+        try {
+            const fresh = await service.getResources();
+            cpuStr = `${fresh.resources.cpu_absolute.toFixed(1)}%`;
+        } catch {}
+
         await interaction.editReply({
             embeds: [
                 new EmbedBuilder()
-                    .setColor(0xef4444)
-                    .setTitle("⏱️ Timeout — Servidor não ficou online")
+                    .setColor(0x22c55e)
+                    .setTitle(
+                        ready
+                            ? "🟢 Servidor Pronto para Entrar!"
+                            : "🟢 Servidor Online!",
+                    )
                     .setDescription(
-                        "O servidor não ficou online em **5 minutos**.\nVerifique o painel manualmente.",
+                        ready
+                            ? `Mundo carregado! Você já pode entrar. Tempo total: **${totalSec}s**.`
+                            : `O servidor está online após **${totalSec}s**. Tente entrar — o mundo pode já estar carregado.`,
+                    )
+                    .addFields(
+                        {
+                            name: "Tempo total",
+                            value: `${totalSec}s`,
+                            inline: true,
+                        },
+                        {
+                            name: "CPU",
+                            value: cpuStr,
+                            inline: true,
+                        },
                     )
                     .setFooter({ text: "EnxadaHost · Pterodactyl" })
                     .setTimestamp(),
             ],
+        });
+
+        await interaction.followUp({
+            content: ready
+                ? `${interaction.user.toString()} ✅ Servidor pronto para entrar! (**${totalSec}s**)`
+                : `${interaction.user.toString()} ✅ Servidor online! (**${totalSec}s**)`,
         });
     }
 

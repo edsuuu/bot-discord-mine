@@ -7,7 +7,7 @@ import prettierConfig from 'eslint-config-prettier';
 
 export default [
     {
-        ignores: ['dist/**', 'node_modules/**', 'eslint.config.ts'],
+        ignores: ['dist/**', 'node_modules/**', 'eslint.config.ts', 'ecosystem.config.cjs'],
     },
 
     js.configs.recommended,
@@ -45,6 +45,18 @@ export default [
         },
 
         rules: {
+            'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                {
+                    vars: 'all',
+                    args: 'all',
+                    argsIgnorePattern: '^_',
+                    varsIgnorePattern: '^_',
+                    caughtErrorsIgnorePattern: '^_',
+                    ignoreRestSiblings: true,
+                },
+            ],
             indent: ['error', 4],
             'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
             quotes: ['error', 'single'],
